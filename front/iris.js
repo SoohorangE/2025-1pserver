@@ -23,7 +23,7 @@ function Send()
 
     }).done(function(response) {
         var output = document.getElementById('txtOut');
-        output.innerText = 'prediction : ' + response.prediction
+        output.innerText = 'prediction : ' + response.prediction + "일 확률: " + response.probability
     }).fail(function(response) {
         alert("fail" + JSON.stringify(response))
     }).always(function() {
