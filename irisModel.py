@@ -33,7 +33,12 @@ class IrisMachineLearning:
         return model_rfc
 
     def predict_species(self, sepal_length, sepal_width, petal_length, petal_width):
-        X_new = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
+
+        # X_new = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
+
+        X_new = pd.DataFrame([[sepal_length, sepal_width, petal_length, petal_width]],
+                             columns=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])
+
         prediction = self.model_rfc.predict(X_new)
 
         return prediction[0]
