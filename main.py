@@ -1,11 +1,20 @@
 import uvicorn
 from fastapi import FastAPI
-
+from fastapi.middleware.cors import CORSMiddleware
 from irisModel import IrisMachineLearning, IrisSpecies
 
 app = FastAPI()
-model = IrisMachineLearning()
 
+# CORS 설정
+app.add_middleware(
+    CORSMiddleware,
+    allow_origin_regex=r"http://(localhost|127\.0\.0\.1):\d+",
+    allow_credentials=True,
+    allow_methods=["*"],  # 모든 HTTP 메서드 허용
+    allow_headers=["*"],  # 모든 헤더 허용
+)
+
+model = IrisMachineLearning()
 @app.get("/")
 async def root():
     return {"message": "Hello, this is iris classifier 2025/3/10"}
