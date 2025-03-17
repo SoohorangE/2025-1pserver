@@ -4,7 +4,6 @@ from fastapi import FastAPI
 from irisModel import IrisMachineLearning, IrisSpecies
 
 app = FastAPI()
-
 model = IrisMachineLearning()
 
 @app.get("/")
