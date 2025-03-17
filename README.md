@@ -3,4 +3,9 @@
 
 ## fastAPI를 이용한 붓꽃 분류 시스템을 만들어보자.
 
+<img src="iris.png"/>
+
+## 동작화면 예시 ##
+<img src="capture.png"/>
+
 

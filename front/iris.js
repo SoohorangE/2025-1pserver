@@ -1,10 +1,15 @@
 function Send()
 {
+    sl = document.getElementById('sl').value
+    sw = document.getElementById('sw').value
+    pl = document.getElementById('pl').value
+    pw = document.getElementById('pw').value
+
     var data = {
-        'sepal_length' : 8.0,
-        'sepal_width' : 1.0,
-        'petal_length' : 8.0,
-        'petal_width' : 1.0
+        'sepal_length' : sl,
+        'sepal_width' : sw,
+        'petal_length' : pl,
+        'petal_width' : pw
     }
     
     $.ajax({
@@ -18,7 +23,7 @@ function Send()
 
     }).done(function(response) {
         var output = document.getElementById('txtOut');
-        output.innerHTML = 'prediction : ' + response.prediction;
+        output.innerText = 'prediction : ' + response.prediction
     }).fail(function(response) {
         alert("fail" + JSON.stringify(response))
     }).always(function() {
