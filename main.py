@@ -27,7 +27,7 @@ async def predict():
 @app.post("/predict")
 async def predict_species(iris: IrisSpecies):
     pred, prob= model.predict_species(iris.sepal_length, iris.sepal_width, iris.petal_length, iris.petal_width)
-    return {"prediction": pred, "probability": prob}
+    return {"prediction": pred, "probability": prob.tolist()}
 
 
 if __name__ == "__main__":
